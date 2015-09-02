@@ -54,11 +54,12 @@ private static final String HOST = "192.168.0.1";
 ### アクセシビリティ
 この変数がどこからアクセスできるかを表します。
 
-|アクセシビリティ|参照できる範囲|
-|private|クラス内のみ|
-|protected|クラス内・継承関係の子クラスから|
-|何もつけない|同じパッケージ内|
-|public|どこからでも|
+|アクセシビリティ|参照できる範囲               |
+|-------------|---------------------------|
+|private      |クラス内のみ                 |
+|protected    |クラス内・継承関係の子クラスから|
+|何もつけない   |同じパッケージ内             |
+|public       |どこからでも                 |
 
 この講義内ではpublicとprivateだけを使います。
 
@@ -99,9 +100,10 @@ String name = "Taro";
 またラッパークラスのインスタンスは、プリミティブ型と同等の値を表す存在でもあります。
 
 |プリミティブ型|ラッパークラス|
-|boolean|Boolean|
-|int|Integer|
-|double|Double|
+|------------|------------|
+|boolean     |Boolean     |
+|int         |Integer     |
+|double      |Double      |
 
 ```java
 int age = Integer.parseInt("18"); // 文字列から数値への変換
@@ -1221,7 +1223,7 @@ Picassoはバックグラウンドでインターネットを通じて画像を�
 外部のサーバーと通信を行う場合にはINTERNETパーミッションが必要なのでAndroidManifestに追記します。
 
 ```xml
-<manifest 
+<manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cookpad.android.pictboard">
 
