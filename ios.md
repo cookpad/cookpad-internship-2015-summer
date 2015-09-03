@@ -64,7 +64,7 @@ Playground を作成すると以下の様な画面が表示され、コードを
 let キーワードで定数を宣言できる。
 定数なので値を変更しようとするとコンパイルエラーになる。
 
-```
+```swift
 let number = 1
 let text = "Hello World!"
 
@@ -75,7 +75,7 @@ println(number) // => "1"
 
 var キーワードで変数を宣言できる。
 
-```
+```swift
 var apple = 100
 var banana = 200
 banana = 300
@@ -88,7 +88,7 @@ println(banana) // => "300"
 変数には型があり、整数を表現する Int 型や文字列を表現する String 型など様々な型がある。
 Swift では型推論できる場合は型を省略できる。
 
-```
+```swift
 var mango: Int = 300
 
 println(mango) // => "300"
@@ -99,7 +99,7 @@ println(mango) // => "300"
 Int 型の配列は [Int] と表現する
 他のプログラミング言語と同じように`[]`のなかに要素を並べて初期化できる。
 
-```
+```swift
 let numbers: [Int] = [1, 2, 3]
 var products = ["apple", "banana", "mango"]
 
@@ -115,7 +115,7 @@ products // => ["apple", "mango", "mushroom"]
 String 型の値を key に Int 型の値を value としてもつ辞書は [String: Int] と表現する。
 [key1: value1, key2: value2, ...] というリテラルで初期化できる。
 
-```
+```swift
 let prices = [
     "apple": 100,
     "banana": 200,
@@ -136,7 +136,7 @@ items["herb"] = 10
 nil を代入できる Int 型として Int? 型がある（正確には Optional にラップされている Int 型 `Optional<Int>`）。
 非Optional型である Int に nil を代入しようとするとエラーになる。
 
-```
+```swift
 var source: Int
 source = 100
 source = nil // => Cannot assign a value of type 'nil' to a value of type 'Int'
@@ -148,7 +148,7 @@ destination = nil // => nil
 
 Optional だが nil が代入されてないものとして扱う Implicitly Unwrapped Optional 型もある。
 
-```
+```swift
 var textLabel: UILabel!
 textLabel.text = "Hello World!"
 ```
@@ -160,7 +160,7 @@ textLabel.text = "Hello World!"
 
 ## if
 
-```
+```swift
 if count < 10 {
     println("\(count)!")
 }
@@ -169,7 +169,7 @@ if count < 10 {
 Optional binding という機能もある。
 String#toInt() は Int? を返すメソッドであり、以下の例では数値に変換できた場合のみ actualNumber に値を束縛しブロックの処理を実行する。
 
-```
+```swift
 var possibleNumber = "123"
 if let actualNumber = possibleNumber.toInt() {
     println("\'\(possibleNumber)\' has an integer value of \(actualNumber)")
@@ -181,7 +181,7 @@ if let actualNumber = possibleNumber.toInt() {
 
 ## for
 
-```
+```swift
 for var i = 0; i < 10; i++ {
     println(i)
 }
@@ -189,7 +189,7 @@ for var i = 0; i < 10; i++ {
 
 Range も使える。0..<10 と 0...10 があり、前者は10を含まず後者は10を含む。
 
-```
+```swift
 for i in 0..<10 {
     println(i) // 10 times
 }
@@ -197,7 +197,7 @@ for i in 0..<10 {
 
 Array, Dictionary の for-in
 
-```
+```swift
 for product in products {
     println(product)
 }
@@ -209,7 +209,7 @@ for (name, price) in prices {
 
 # クラス・メソッドの定義
 
-```
+```swift
 class Creature {
     let name: String
 
@@ -235,7 +235,7 @@ class FlyingCreature: Creature {
 
 # インスタンスの作成
 
-```
+```swift
 let elephant = Creature(name: "elephant")
 ```
 
@@ -244,7 +244,7 @@ let elephant = Creature(name: "elephant")
 Creature 型のインスタンス creatureA があるとする。
 Creature クラスに attack() -> Int というメソッドが定義されていた場合、以下のようにして呼び出すことができる。
 
-```
+```swift
 creatureA.attack() => 10 (Int)
 ```
 
@@ -252,13 +252,13 @@ creatureA.attack() => 10 (Int)
 creatureB が nil でなければ attack() メソッドを呼ぶということを以下のように書ける(アンラップしてメソッドを呼ぶ)。
 creatureB は Optional なのでこのように書かないとコンパイルエラーになる。
 
-```
+```swift
 creatureB?.attack() => 10 (Int?)
 ```
 
 creatureB が nil でないと仮定して強制的にメソッドを呼び出すこともできる。
 
-```
+```swift
 creatureB!.attack() => 10 (Int)
 ```
 
@@ -267,7 +267,7 @@ creatureB!.attack() => 10 (Int)
 `?` を常に使ったほうが良いように思えるが、`?` を使った場合は、式の評価結果が Optional になるという点が `!` と違う。
 上記の例で言えば attack() メソッドの返り値が非 Optional だったとしても `?` の場合は Optional にラップされ、`!` の場合は非 Optional のままとなる。
 
-```
+```swift
 let creatureA = Creature(name: "A")
 let creatureB: Creature? = Creature(name: "B")
 
@@ -450,7 +450,7 @@ Storyboard で Cell の reuseIdentifier に `Cell` を指定する。
 投稿画像に付けられたコメントを表現する Comment クラスを定義する。
 Comment クラスは、コメント本文、コメント日付をプロパティに持つ。
 
-```
+```swift
 import Foundation
 
 class Comment {
@@ -468,7 +468,7 @@ class Comment {
 
 投稿画像を表現する Thread クラスは、id、タイトル、画像URL、コメントの配列をプロパティに持つ。
 
-```
+```swift
 import Foundation
 
 class Thread {
@@ -490,7 +490,7 @@ class Thread {
 投稿画像を束ねる ThreadStore クラスを作る。
 投稿画像一覧を取得する処理は後述する。
 
-```
+```swift
 import Foundation
 
 class ThreadStore {
@@ -503,7 +503,7 @@ class ThreadStore {
 投稿画像一覧を取得する `retrieveThreads` メソッドを ThreadStore クラスに実装する。
 投稿画像一覧取得 API を実行するリクエストを送信し、レスポンスを前節で定義したクラスのインスタンスに割り当てる処理を記述する。リクエストの実行が完了したタイミングで追加の処理を行えるようブロックを引数に渡せるようにする。
 
-```
+```swift
 func retrieveThreads(block: ((error: NSError?) -> Void)?) {
     let apiURL = NSURL(string: "http://localhost:3000/images.json")!
 
@@ -558,11 +558,11 @@ UIViewController には `viewWillAppear(animated: Bool)` というメソッド�
 
 ThreadListViewController を以下のように修正する。
 
-```
+```swift
 let threadStore = ThreadStore()
 ```
 
-```
+```swift
 override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
 
@@ -579,7 +579,7 @@ override func viewWillAppear(animated: Bool) {
 }
 ```
 
-```
+```swift
 override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return threadStore.threads.count
 }
@@ -698,7 +698,7 @@ thumbnailImageView, titleLabel, urlLabel の3つの設定ができると以下�
 
 ThreadCell を実装したら、ThreadListViewController でもそれを使うように修正する。
 
-```
+```swift
 override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("ThreadCell") as! ThreadCell
 
@@ -720,7 +720,7 @@ ImageView に画像を表示するには以下の手順が必要となる。
 
 これらの手順は以下の様なコードで実現できる
 
-```
+```swift
 let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(imageURL, completionHandler: { data, response, error in
     if error == nil {
         if let image = UIImage(data: data) {
@@ -746,11 +746,11 @@ downloadTask.resume()
 読み込んだ画像をキャッシュして、同じURLの画像を表示しようとしたらキャッシュがないか確認し、あればそれを使うようにする。
 前のコードに少し処理を足し、読み込んだ後に画像をキャッシュしてキャッシュが存在すればそれを使うようにしたのが以下のコードである。
 
-```
+```swift
 let imageCache = NSCache()
 ```
 
-```
+```swift
 if let image = imageCache.objectForKey(imageURL) as? UIImage {
     imageView.image = image
 } else {
@@ -792,7 +792,7 @@ CocoaPods は Ruby でいう Bundler のようなツールであり、 Podfile �
 
 以下のように記述した Podfile を用意する。
 
-```
+```ruby
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.4'
 use_frameworks!
@@ -802,7 +802,7 @@ pod "SDWebImage"
 
 Podfile を用意したら以下のコマンドを実行する。
 
-```
+```sh
 pod install
 ```
 
@@ -828,7 +828,7 @@ SDWebImage は Objective-C で書かれたライブラリなので Swift から�
 作成された PictBoard-Bridging-Header.h に以下の1行を追加する。
 これは SDWebImage で追加される UIImageView のカテゴリをこのプロジェクトで利用できるようにするものである。
 
-```
+```objc
 #import <SDWebImage/UIImageView+WebCache.h>
 ```
 
@@ -837,7 +837,7 @@ SDWebImage は Objective-C で書かれたライブラリなので Swift から�
 SDWebImage が導入できたところで、画像の読み込みとImageViewを設定したところを書き直してみる。
 SDWebImage を使うと以下の1行で済んでしまう。
 
-```
+```swift
 imageView.sd_setImageWithURL(thread.imageURL)
 ```
 
@@ -895,7 +895,7 @@ Storyboard で設定した遷移が実行されるとき、ViewController の pr
 以下の様なコードで thread インスタンスを commentListViewController に渡す。
 ThreadCommentListViewController にもメンバ変数 thread: Thread を宣言しておく。
 
-```
+```swift
 override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showThreadCommentList" {
         let commentListViewController = segue.destinationViewController as! ThreadCommentListViewController
@@ -914,7 +914,7 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 updateThreadInfo() というメソッドを定義し、これを viewWillAppear で呼ぶことにする。
 ViewController の title プロパティに文字列を設定すると、ナビゲーションバーのタイトルとして表示される。
 
-```
+```swift
 func updateThreadInfo() {
     self.title = thread?.title
 
@@ -939,7 +939,7 @@ Storyboard で identifier と一緒にこのスタイルを設定する。
 
 スレッドにつけられたコメントリストを取得するメソッドを Thread クラスに実装する。
 
-```
+```swift
 static var ISO8601DateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -948,7 +948,7 @@ static var ISO8601DateFormatter: NSDateFormatter = {
 }()
 ```
 
-```
+```swift
 func retrieveComments(block: ((error: NSError?) -> Void)?) {
     let apiURL = NSURL(string: "http://localhost:3000/images/\(self.id).json")!
 
@@ -985,7 +985,7 @@ func retrieveComments(block: ((error: NSError?) -> Void)?) {
 
 updateThreadInfo() を修正して、コメントの取得を実行しその後にcommentListViewを再読み込みするようにする。
 
-```
+```swift
 func updateThreadInfo() {
     self.title = thread?.title
 
@@ -1007,7 +1007,7 @@ func updateThreadInfo() {
 dataSource の実装は以下のようになるだろう。
 updateWithComment(comment: Comment) のような、モデルを渡すとラベルなどに適切な値を設定するメソッドをカスタムセルのクラスに定義しておくと便利だ。
 
-```
+```swift
 func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let rows = thread?.comments.count {
         return rows
@@ -1027,7 +1027,7 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
 
 NSDateFormatter をつかって時刻を読みやすいように整形にする。
 
-```
+```swift
 class CommentCell : UITableViewCell {
     static var defaultDateFormatter: NSDateFormatter = {
         let formatter = NSDateFormatter()
@@ -1050,7 +1050,7 @@ postCommentButton が押された時に呼ばれるメソッド `didTapPostComme
 
 試しにログを出力する処理を書いて試してみよう。
 
-```
+```swift
 @IBAction func didTapCommentPostButton(sender: AnyObject) {
     println("tap!")
 }
@@ -1071,7 +1071,7 @@ NotificationCenter に通知がきたら ViewController のメソッドを呼び
 また ViewController が不要になり解放されるタイミングで Observer 登録が解除されるようにする必要もある。
 以下の様なコードで登録・解除ができる。
 
-```
+```swift
 deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
 }
@@ -1102,7 +1102,7 @@ Constraint の値を変更する keyboardWillShow/keyboardWillHide は以下の�
 
 コメントリストに項目があった場合不自然な表示になってしまうので、再レイアウトと同時にコメントリスト最下部にスクロールするメソッドも実装し、呼び出すようにする。
 
-```
+```swift
 func keyboardWillShow(notification: NSNotification) {
     let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey]!.doubleValue
     let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey]!.CGRectValue()
@@ -1140,7 +1140,7 @@ Storyboard で画像詳細画面の View に Tap Gesture Recognizer を貼りつ
 
 以下のようにメソッドを実装する。
 
-```
+```swift
 @IBAction func didCancelPostComment(sender: AnyObject) {
     newCommentTextField.resignFirstResponder()
 }
@@ -1156,7 +1156,7 @@ resignFirstResponder() というメソッドを呼ぶと、テキストフィー
 
 Thread クラスにコメント投稿リクエストを送信するメソッドを追加する。
 
-```
+```swift
 func addComment(body: String, block: ((error: NSError?) -> Void)?) {
     let comment = Comment(body: body, date: NSDate())
     comments.append(comment)
@@ -1195,7 +1195,7 @@ func addComment(body: String, block: ((error: NSError?) -> Void)?) {
 コメントボタンが押された時の処理を以下のように記述する。
 コメントが投稿されたらコメントリストを再読み込みし、リスト最下部にスクロールする。
 
-```
+```swift
 @IBAction func didTapCommentPostButton(sender: AnyObject) {
     let body = self.newCommentTextField.text
 
