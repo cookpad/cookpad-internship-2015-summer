@@ -462,6 +462,8 @@ AndroidにMVCの概念はないですが、Railsにおける`Controller`の役�
 
 <img width=500 src="img/activity_lifecycle.png" />
 
+[Activity | Android Developers](http://developer.android.com/reference/android/app/Activity.html) より引用
+
 Activityは生成されてから破棄されるまでに、システム側がイベントと称してonCreate()やonStart()などのメソッドを順番に呼びます。
 この一連の流れをActivityのライフサイクルと呼んでいます。またライフサイクルによって実行されるメソッドをライフサイクルイベントと呼んでいます。
 Androidプログラミングでは、どのライフサイクルイベントに処理を記述するかが重要で、適切で無いライフサイクルイベントに処理を書いてしまうと、アプリが落ちたり、重くなったりします。
