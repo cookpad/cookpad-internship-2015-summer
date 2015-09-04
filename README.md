@@ -10,7 +10,7 @@ https://speakerdeck.com/yoshiori/cookpad-2015-summer-internship-rails
 
 ## Android
 
-<a href="./android.md">document</a>
+[document](./android.md)
 
 ## Machine Learning / Natural Language Processing
 
